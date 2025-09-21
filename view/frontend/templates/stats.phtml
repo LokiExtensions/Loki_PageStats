@@ -1,0 +1,80 @@
+<?php
+declare(strict_types=1);
+
+use Magento\Framework\View\Element\Template;
+
+/** @var Template $block */
+?>
+<div class="loki-page-stats">
+    <dl>
+        <dt>Body size</dt>
+        <dd id="loki-page-stats-body-size"></dd>
+        <dt>DOM complete</dt>
+        <dd id="loki-page-stats-dom-complete"></dd>
+        <dt>Elements found</dt>
+        <dd id="loki-page-stats-element-count"></dd>
+        <dt>Event counts</dt>
+        <dd id="loki-page-stats-events"></dd>
+        <dt>Script count</dt>
+        <dd id="loki-page-stats-script-count"></dd>
+        <dt>Script size</dt>
+        <dd id="loki-page-stats-script-size"></dd>
+    </dl>
+
+</div>
+
+<style>
+    .loki-page-stats {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        border: 1px solid #aaa;
+        background-color: white;
+        padding: 10px;
+        box-shadow: 1px 1px 10px;
+        font-size: 0.8rem;
+        width: auto;
+    }
+
+    .loki-page-stats dl {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .loki-page-stats dt {
+        padding-right: 10px;
+    }
+</style>
+
+<script>
+    (function() {
+        setTimeout(() => {
+            const data = performance.getEntriesByType('navigation');
+            if (!data || !data[0]) {
+                return;
+            }
+
+            document.getElementById('loki-page-stats-body-size').innerHTML = Math.round(data[0].decodedBodySize / 1000) + ' Kb';
+            document.getElementById('loki-page-stats-dom-complete').innerHTML = Math.round(data[0].domInteractive) + ' ms';
+            document.getElementById('loki-page-stats-element-count').innerHTML = document.getElementsByTagName('*').length;
+            document.getElementById('loki-page-stats-events').innerHTML = performance.eventCounts.size;
+
+            let scriptCount = 0;
+            let scriptSize = 0;
+            performance.getEntriesByType('resource').forEach((item) => {
+                if (item.initiatorType !== 'script') {
+                    return;
+                }
+
+                scriptCount++;
+                scriptSize = scriptSize + item.decodedBodySize;
+            });
+
+            document.getElementById('loki-page-stats-script-count').innerHTML = scriptCount;
+            document.getElementById('loki-page-stats-script-size').innerHTML = Math.round(scriptSize / 1000) + ' Kb';
+
+            console.log('page stats', data);
+            console.log('memory', performance.memory);
+        }, 10);
+    })();
+</script>
