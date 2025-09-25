@@ -72,9 +72,6 @@ use Magento\Framework\View\Element\Template;
 
             document.getElementById('loki-page-stats-script-count').innerHTML = scriptCount;
             document.getElementById('loki-page-stats-script-size').innerHTML = Math.round(scriptSize / 1000) + ' Kb';
-
-            console.log('page stats', data);
-            console.log('memory', performance.memory);
         }, 10);
     })();
 </script>
