@@ -1,6 +1,6 @@
 {
   "name": "loki/magento2-page-stats",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "N/A",
   "type": "magento2-module",
   "require": {
