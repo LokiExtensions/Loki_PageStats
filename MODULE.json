@@ -3,6 +3,5 @@
     "modules": [],
     "components": [],
     "config": [],
-    "tests": [],
-    "phpcs_severity": "1"
+    "tests": []
 }
