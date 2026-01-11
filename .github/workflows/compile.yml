@@ -34,6 +34,7 @@ jobs:
 
       - name: Run Magento 2 compilation
         run: |
+          cd /tmp/magento
           bin/magento module:enable --all
           php -dmemory_limit=-1 bin/magento setup:di:compile
 
