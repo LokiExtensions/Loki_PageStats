@@ -51,15 +51,19 @@ use Magento\Framework\View\Element\Template;
 <script>
     (function() {
         setTimeout(() => {
+            function getElement(name) {
+                return document.getElementById('loki-page-stats-' + name);
+            }
+
             const data = performance.getEntriesByType('navigation');
             if (!data || !data[0]) {
                 return;
             }
 
-            document.getElementById('loki-page-stats-body-size').innerHTML = Math.round(data[0].decodedBodySize / 1000) + ' Kb';
-            document.getElementById('loki-page-stats-dom-complete').innerHTML = Math.round(data[0].domInteractive) + ' ms';
-            document.getElementById('loki-page-stats-element-count').innerHTML = document.getElementsByTagName('*').length;
-            document.getElementById('loki-page-stats-events').innerHTML = performance.eventCounts.size;
+            getElement('body-size').innerHTML = Math.round(data[0].decodedBodySize / 1000) + ' Kb';
+            getElement('dom-complete').innerHTML = Math.round(data[0].domInteractive) + ' ms';
+            getElement('element-count').innerHTML = document.getElementsByTagName('*').length;
+            getElement('events').innerHTML = performance.eventCounts.size;
 
             let scriptCount = 0;
             let scriptSize = 0;
@@ -72,8 +76,8 @@ use Magento\Framework\View\Element\Template;
                 scriptSize = scriptSize + item.decodedBodySize;
             });
 
-            document.getElementById('loki-page-stats-script-count').innerHTML = scriptCount;
-            document.getElementById('loki-page-stats-script-size').innerHTML = Math.round(scriptSize / 1000) + ' Kb';
+            getElement('script-count').innerHTML = scriptCount;
+            getElement('script-size').innerHTML = Math.round(scriptSize / 1000) + ' Kb';
         }, 10);
     })();
 </script>
