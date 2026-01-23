@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.2] - 23 January 2026
+### Fixed
+- CI/CD fixes
+
 ## [0.0.1] - 26 September 2025
 ### Added
 - Initial release
