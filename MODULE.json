@@ -4,5 +4,16 @@
     "components": [],
     "config": [],
     "tests": [],
-    "phpcs_severity": "1"
+    "phpcs_severity": "1",
+    "module_name": "Loki_PageStats",
+    "composer_name": "loki/magento2-page-stats",
+    "php_versions": [
+        "8.1",
+        "8.2",
+        "8.3",
+        "8.4"
+    ],
+    "skip_magento_versions": [],
+    "skip_css_utils": false,
+    "phpstan_level": 1
 }
