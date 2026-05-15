@@ -1,7 +1,7 @@
 {
     "name": "loki/magento2-page-stats",
     "version": "0.0.2",
-    "description": "N/A",
+    "description": "Developer tool to report various page loading statistics",
     "type": "magento2-module",
     "require": {
         "magento/framework": "^103.0"
