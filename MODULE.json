@@ -15,5 +15,5 @@
     ],
     "skip_magento_versions": [],
     "skip_css_utils": false,
-    "phpstan_level": 1
+    "phpstan_level": "9"
 }
