@@ -8,7 +8,6 @@
     "module_name": "Loki_PageStats",
     "composer_name": "loki/magento2-page-stats",
     "php_versions": [
-        "8.1",
         "8.2",
         "8.3",
         "8.4",
