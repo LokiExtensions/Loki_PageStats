@@ -3,7 +3,10 @@
     "modules": [],
     "components": [],
     "config": [],
-    "tests": [],
+    "tests": {
+        "integration": 3,
+        "functional": 2
+    },
     "phpcs_severity": "1",
     "module_name": "Loki_PageStats",
     "composer_name": "loki/magento2-page-stats",
