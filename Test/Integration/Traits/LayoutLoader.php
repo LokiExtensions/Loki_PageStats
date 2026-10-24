@@ -10,13 +10,22 @@ use Magento\Framework\View\Result\PageFactory;
 
 trait LayoutLoader
 {
+    /**
+     * @param string[] $handles
+     */
     private function loadLayout(array $handles, string $theme = 'Magento/luma'): LayoutInterface
     {
         $objectManager = ObjectManager::getInstance();
-        $objectManager->get(DesignInterface::class)->setDesignTheme($theme, 'frontend');
+
+        /** @var DesignInterface $design */
+        $design = $objectManager->get(DesignInterface::class);
+        $design->setDesignTheme($theme, 'frontend');
+
+        /** @var PageFactory $pageFactory */
+        $pageFactory = $objectManager->get(PageFactory::class);
 
         /** @var Page $page */
-        $page = $objectManager->get(PageFactory::class)->create(true);
+        $page = $pageFactory->create(true);
         $page->getConfig()->setPageLayout('1column');
         $page->addHandle($handles);
 
@@ -28,6 +37,9 @@ trait LayoutLoader
 
     private function createLayout(): LayoutInterface
     {
-        return ObjectManager::getInstance()->create(LayoutInterface::class);
+        /** @var LayoutInterface $layout */
+        $layout = ObjectManager::getInstance()->create(LayoutInterface::class);
+
+        return $layout;
     }
 }

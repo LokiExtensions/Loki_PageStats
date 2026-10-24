@@ -17,6 +17,7 @@ class ModuleTest extends TestCase
 
     public function testModuleIsEnabled(): void
     {
+        /** @var ModuleList $moduleList */
         $moduleList = ObjectManager::getInstance()->get(ModuleList::class);
         $this->assertTrue($moduleList->has('Loki_PageStats'));
     }

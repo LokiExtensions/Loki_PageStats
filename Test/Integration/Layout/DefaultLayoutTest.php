@@ -40,6 +40,7 @@ class DefaultLayoutTest extends TestCase
 
         foreach ($layoutFiles as $layoutFile) {
             $xml = simplexml_load_file($layoutFile);
+            $this->assertInstanceOf(\SimpleXMLElement::class, $xml);
             $schemaLocation = (string)$xml->attributes('http://www.w3.org/2001/XMLSchema-instance')
                 ->noNamespaceSchemaLocation;
 

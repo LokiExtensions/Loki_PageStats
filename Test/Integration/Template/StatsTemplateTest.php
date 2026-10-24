@@ -22,6 +22,9 @@ class StatsTemplateTest extends TestCase
         );
     }
 
+    /**
+     * @return array<int, array{string, string}>
+     */
     public static function getStatisticData(): array
     {
         return [
