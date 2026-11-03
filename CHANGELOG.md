@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.3] - 03 November 2026
+### Fixed
+- Remove PHP 8.1 support, add PHP 8.5 support
+
 ## [0.0.2] - 23 January 2026
 ### Fixed
 - CI/CD fixes
