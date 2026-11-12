@@ -9,7 +9,9 @@
     },
     "require-dev": {
         "ext-pcre": "*",
-        "phpunit/phpunit": "^10.5"
+        "loki/magento2-functional-tests": "@dev",
+        "phpunit/phpunit": "^10.5",
+        "yireo/magento2-integration-test-helper": "~0.0"
     },
     "license": [
         "OSL-3.0"
